@@ -8,8 +8,9 @@ module.exports = app => {
         .post(wrapAsync(userAPI.login));
 
     app.route('/user/signup')
-        .post(wrapAsync(userAPI.register)); 
-        
-    app.route('/user/exists/:userName')
-        .get(wrapAsync(userAPI.checkUserNameTaken));
+        .post(wrapAsync(userAPI.register));
+    app
+      .route("/user/exists/:userName")
+      .get(wrapAsync(userAPI.checkUserNameTaken));
+      
 };

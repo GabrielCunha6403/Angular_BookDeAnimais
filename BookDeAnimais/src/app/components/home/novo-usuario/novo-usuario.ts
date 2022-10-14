@@ -1,6 +1,6 @@
 export interface NovoUsuario {
   email: string;
-  fullName: string;
+  usuario: string;
   password: string;
   confirmPassword: string;
 }

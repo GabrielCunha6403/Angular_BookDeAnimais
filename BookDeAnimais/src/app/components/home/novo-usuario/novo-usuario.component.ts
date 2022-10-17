@@ -9,7 +9,6 @@ import {
   OperatorFunction,
   pipe,
   retry,
-  retryWhen,
   take,
   throwError,
 } from 'rxjs';
@@ -17,23 +16,6 @@ import { UsuarioExistenteService } from '../usuario-existente.service';
 import { minusculo } from './minusculo';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './novo-usuario.service';
-
-/*const isServerError = (err: HttpErrorResponse) => err.status >= 500;
-function repetidorDeSubscribes() {
-  let contadorDeSubscribes = 5;
-  pipe(retryWhen(errors => {
-      return errors.pipe(
-        mergeMap((err) => {
-          if (isServerError(err) && contadorDeSubscribes > 0) {
-            contadorDeSubscribes--;
-            return interval(2000).pipe(take(1));
-          }
-          return throwError(err);
-        })
-      );
-    })
-  );
-};*/
 
 @Component({
   selector: 'app-novo-usuario',
@@ -64,9 +46,9 @@ export class NovoUsuarioComponent implements OnInit {
   }
 
   cadastrarUsuario(): void {
-    if (this.novoUsuarioForm.valid) {
+    if (!this.novoUsuarioForm.valid) {
       const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
-      this.novoUsuarioService.cadastrarNovoUsuario(novoUsuario)./*pipe(repetidorDeSubscribes()).*/subscribe(
+      this.novoUsuarioService.cadastrarNovoUsuario(novoUsuario).subscribe(
         () => {
           this.router.navigate(['']);
         },

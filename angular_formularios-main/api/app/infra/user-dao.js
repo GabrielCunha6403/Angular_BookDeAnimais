@@ -69,9 +69,5 @@ class UserDao {
       );
     });
   }
-
-  gett() {
-    return new Promise(() => this._db.get(`SELECT * FROM user`));
-  }
 }
 module.exports = UserDao;

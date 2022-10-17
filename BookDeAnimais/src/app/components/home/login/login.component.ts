@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/components/autenticacao/autenticacao.service';
+import { Usuario } from '../../autenticacao/usuario';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login(): void {
-    this.servicoDeAutenticacao.validarUsuario(this.usuario, this.senha).subscribe(() => {
-      this.router.navigate(['animais'])
-    }, (error) => {
-      alert("Usuário ou senha inválido");
-      console.log(error)
-    });
+    console.log(this.usuario);
+    console.log(this.senha);
+    this.servicoDeAutenticacao.validarUsuario(this.usuario, this.senha).subscribe(
+        (req) => {
+          console.log(req);
+          this.router.navigate(['animais']);
+        },
+        (error) => {
+          alert('Usuário ou senha inválido');
+          console.log(error);
+        }
+      );
   }
 }

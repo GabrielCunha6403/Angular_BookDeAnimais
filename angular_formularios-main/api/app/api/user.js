@@ -40,9 +40,4 @@ api.checkUserNameTaken = async (req, res) => {
   res.json(!!user);
 };
 
-api.gett = async (req, res) => {
-    const json = await new UserDao(req.db);
-  res.json(json);
-};
-
 module.exports = api;

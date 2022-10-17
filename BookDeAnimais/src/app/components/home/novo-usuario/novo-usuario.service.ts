@@ -4,17 +4,16 @@ import { Observable } from 'rxjs';
 import { NovoUsuario } from './novo-usuario';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NovoUsuarioService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   cadastrarNovoUsuario(novoUsuario: NovoUsuario): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/user/signup', novoUsuario);
+    return this.httpClient.post('http://localhost:3000/user/', novoUsuario);
   }
 
   verificarSeUsuarioExiste(nomeDoUsuario: string) {
-    return this.httpClient.get(`http://localhost:3000/user/exists/${nomeDoUsuario}/`);
+    return this.httpClient.get(`http://localhost:3000/user/${nomeDoUsuario}/`);
   }
 }

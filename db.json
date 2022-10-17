@@ -1,0 +1,17 @@
+{
+  "user": [
+    {
+      "email": "a@a.com",
+      "usuario": "biel",
+      "confirmPassword": "123",
+      "password": "123"
+    },
+    {
+      "email": "a@a.com",
+      "usuario": "joao",
+      "confirmPassword": "123",
+      "password": "123"
+    }
+  ],
+  "usuarioLogado": []
+}

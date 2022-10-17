@@ -35,6 +35,7 @@ export class UsuarioService {
   logout(): void{
     this.tokenService.excluirToken();
     this.usuarioSubject.next({});
+    this.usuarioSubject.unsubscribe()
   }
 
   estaLogado(): boolean{

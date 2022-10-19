@@ -4,7 +4,7 @@ import { UsuarioService } from '../autenticacao/usuario/usuario.service';
 
 @Component({
   selector: 'app-cabecalho',
-  templateUrl: './cabecalho.component.html',
+  templateUrl: '../templates/cabecalho.component.html',
   styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent implements OnInit {

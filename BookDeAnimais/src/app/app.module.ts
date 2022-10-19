@@ -5,11 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './components/home/home.module';
-import { LoginComponent } from './components/home/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
+import { AnimalComponent } from './components/animais/animal/animal.component';
 
 @NgModule({
-  declarations: [AppComponent, CabecalhoComponent],
+  declarations: [AppComponent, CabecalhoComponent, AnimalComponent],
   imports: [BrowserModule, HomeModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

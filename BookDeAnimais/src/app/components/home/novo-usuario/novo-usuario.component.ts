@@ -15,7 +15,7 @@ import {
 import { UsuarioExistenteService } from '../usuario-existente.service';
 import { minusculo } from './minusculo';
 import { NovoUsuario } from './novo-usuario';
-import { NovoUsuarioService } from './novo-usuario.service';
+import { NovoUsuarioService } from './services/novo-usuario.service';
 
 @Component({
   selector: 'app-novo-usuario',

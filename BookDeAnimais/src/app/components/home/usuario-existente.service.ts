@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { first, map, switchMap } from 'rxjs';
-import { NovoUsuarioService } from './novo-usuario/novo-usuario.service';
+import { NovoUsuarioService } from './novo-usuario/services/novo-usuario.service';
 
 @Injectable({
   providedIn: 'root',

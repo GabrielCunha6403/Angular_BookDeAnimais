@@ -1,15 +1,15 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-light bg-white">
+  <nav class="navbar navbar-light bg-white mx-3 mb-2">
     <a class="navbar-brand">Book de Animais</a>
-    <div *ngIf="user | async as user">
-      <div *ngIf="user.name; else login">
+    <div *ngIf="usuario | async as user">
+      <div *ngIf="user.usuario; else deslogado">
         <i class="fa fa-user-circle mr-1"></i>
-        <a class="mr-1">{{ user.name }}</a>
+        <a class="mr-1">{{ user.usuario }}</a>
         <a (click)="logout()">Logout</a>
       </div>
     </div>
   </nav>
-  <ng-template #login>
+  <ng-template #deslogado>
     <span class="navbar-text">
       <a [routerLink]="['']">Login</a>
     </span>

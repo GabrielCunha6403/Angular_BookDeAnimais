@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-lista-animais',
-  templateUrl: '../../templates/lista-animais.component.html',
+  templateUrl: './lista-animais.component.html',
   styleUrls: ['./lista-animais.component.css'],
 })
 export class ListaAnimaisComponent implements OnInit {

@@ -37,4 +37,8 @@
     Login
   </button>
 </form>
-<p>Não é um usuário? <a [routerLink]="['novo-usuario']">Cadastre-se</a></p>
+<p>
+  Não é um usuário?
+  <button [routerLink]="['novo-usuario']">Cadastre-se</button>
+  <!--<button (click)="enviarToggleLogin()">Cadastre-se</button>-->
+</p>

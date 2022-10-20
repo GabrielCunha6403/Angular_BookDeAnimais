@@ -19,7 +19,7 @@ import { NovoUsuarioService } from './services/novo-usuario.service';
 
 @Component({
   selector: 'app-novo-usuario',
-  templateUrl: '../../templates/novo-usuario.component.html',
+  templateUrl: './novo-usuario.component.html',
   styleUrls: ['./novo-usuario.component.css'],
 })
 export class NovoUsuarioComponent implements OnInit {

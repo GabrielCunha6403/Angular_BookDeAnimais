@@ -5,7 +5,7 @@ const API = environment.apiUrl;
 
 @Component({
   selector: 'app-animal',
-  templateUrl: '../../templates/animal.component.html',
+  templateUrl: './animal.component.html',
   styleUrls: ['./animal.component.css'],
 })
 export class AnimalComponent implements OnInit {

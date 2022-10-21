@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
@@ -13,9 +13,10 @@ import {
   throwError,
 } from 'rxjs';
 import { UsuarioExistenteService } from '../usuario-existente.service';
-import { minusculo } from './minusculo';
+import { minusculo } from '../../../util/minusculo';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './services/novo-usuario.service';
+import strongPassword from 'src/app/util/strongPassword';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -24,6 +25,10 @@ import { NovoUsuarioService } from './services/novo-usuario.service';
 })
 export class NovoUsuarioComponent implements OnInit {
   novoUsuarioForm!: FormGroup;
+
+  toggle: boolean = false;
+
+  @Output() enviarToggle = new EventEmitter<boolean>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,12 +42,22 @@ export class NovoUsuarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       usuario: [
         '',
-        [Validators.required, Validators.minLength(4), minusculo],
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(20),
+          minusculo,
+        ],
         [this.usuarioExistente.usuarioJaExiste()],
       ],
       confirmPassword: [''],
-      password: [''],
+      password: ['', [strongPassword]],
     });
+  }
+
+  enviarToggleLogin() {
+    this.toggle = !this.toggle;
+    this.enviarToggle.emit(this.toggle);
   }
 
   cadastrarUsuario(): void {

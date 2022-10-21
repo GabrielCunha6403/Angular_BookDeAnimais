@@ -8,11 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   constructor() {}
 
-  toggleLogin!: { toggle: boolean };
+  toggleLogin!: { toggle: true };
 
-  setToggle(event: any) {
+  @Input() setToggle(event: any) {
     this.toggleLogin = event;
-    console.log('oi');
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log();
+  }
 }

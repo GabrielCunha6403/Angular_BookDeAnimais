@@ -8,13 +8,17 @@
       />
     </div>
     <div class="col-md-6">
-      <router-outlet></router-outlet>
-      <!--<app-login (enviarToggleLogin)="setToggle($event)"></app-login>
-      <p *ngIf="toggleLogin">funcionou</p>
-      {{ toggleLogin }}-->
+      <!--<router-outlet></router-outlet>-->
+      <app-login
+        (enviarToggle)="setToggle($event)"
+        *ngIf="toggleLogin; else novoUsuario"
+      ></app-login>
     </div>
   </div>
 </div>
 <ng-template #novoUsuario>
-  <app-novo-usuario></app-novo-usuario>
+  <app-novo-usuario
+    (enviarToggle)="setToggle($event)"
+    *ngIf="!toggleLogin; else novoUsuario"
+  ></app-novo-usuario>
 </ng-template>

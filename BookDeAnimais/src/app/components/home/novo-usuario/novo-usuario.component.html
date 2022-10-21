@@ -50,6 +50,13 @@
       formControlName="password"
     />
   </div>
+  <app-mensagem
+    *ngIf="
+        novoUsuarioForm.get('password')?.errors?.['notStrongPassword'] &&
+        novoUsuarioForm.get('password')?.touched
+      "
+    mensagem="Senha muito fraca"
+  ></app-mensagem>
   <div class="form-group mb-2">
     <input
       type="password"
@@ -60,4 +67,8 @@
   </div>
   <button class="btn btn-primary btn-block">Cadastro</button>
 </form>
-<p>Já é um usuário? <a [routerLink]="['']">Faça login</a></p>
+<p>
+  Já é um usuário?
+  <!--<a [routerLink]="['']">Faça login</a>-->
+  <button (click)="enviarToggleLogin()">Faça login</button>
+</p>

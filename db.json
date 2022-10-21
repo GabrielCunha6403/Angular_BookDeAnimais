@@ -11,6 +11,12 @@
       "usuario": "joao",
       "confirmPassword": "123",
       "password": "123"
+    },
+    {
+      "email": "a",
+      "usuario": "relou",
+      "confirmPassword": "Joao64033064@",
+      "password": "Joao64033064@"
     }
   ],
   "usuarioLogado": []

@@ -1,22 +1,12 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  interval,
-  mergeMap,
-  Observable,
-  OperatorFunction,
-  pipe,
-  retry,
-  take,
-  throwError,
-} from 'rxjs';
 import { UsuarioExistenteService } from '../usuario-existente.service';
 import { minusculo } from '../../../util/minusculo';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './services/novo-usuario.service';
 import strongPassword from 'src/app/util/strongPassword';
+import { confirmPassword } from 'src/app/util/confirmPassword';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -50,7 +40,7 @@ export class NovoUsuarioComponent implements OnInit {
         ],
         [this.usuarioExistente.usuarioJaExiste()],
       ],
-      confirmPassword: [''],
+      confirmPassword: ['', [confirmPassword]],
       password: ['', [strongPassword]],
     });
   }

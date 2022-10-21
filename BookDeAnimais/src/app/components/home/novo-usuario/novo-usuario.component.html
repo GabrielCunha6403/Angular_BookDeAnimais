@@ -13,6 +13,13 @@
       "
       mensagem="Email obrigatório"
     ></app-mensagem>
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('email')?.errors?.['email'] &&
+        novoUsuarioForm.get('email')?.touched
+      "
+      mensagem="Email inválido"
+    ></app-mensagem>
   </div>
   <div class="form-group mb-2">
     <input
@@ -49,14 +56,14 @@
       class="form-control"
       formControlName="password"
     />
+    <app-mensagem
+      *ngIf="
+          novoUsuarioForm.get('password')?.errors?.['notStrongPassword'] &&
+          novoUsuarioForm.get('password')?.touched
+        "
+      mensagem="Senha muito fraca"
+    ></app-mensagem>
   </div>
-  <app-mensagem
-    *ngIf="
-        novoUsuarioForm.get('password')?.errors?.['notStrongPassword'] &&
-        novoUsuarioForm.get('password')?.touched
-      "
-    mensagem="Senha muito fraca"
-  ></app-mensagem>
   <div class="form-group mb-2">
     <input
       type="password"
@@ -64,6 +71,13 @@
       class="form-control"
       formControlName="confirmPassword"
     />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('confirmPassword')?.errors?.['notEquals'] &&
+        novoUsuarioForm.get('confirmPassword')?.touched
+      "
+      mensagem="Senhas não coincidem"
+    ></app-mensagem>
   </div>
   <button class="btn btn-primary btn-block">Cadastro</button>
 </form>
